@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+!/usr/bin/env bash
 
 if [[ ! -z $2 ]]; then
     output="--turntable-output $2"
@@ -11,4 +11,4 @@ shift
 shift
 shift
 echo $@
-blender turntable.blend --window-geometry 0 0 0 0 --python turntable.py -- --turntable-model $1 ${output} ${steps} $@
+blender turntable.blend --window-geometry 0 0 1 1 --python turntable.py -- --turntable-model $1 ${output} ${steps} $@
