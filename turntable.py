@@ -50,7 +50,8 @@ import_functions = {
     ".fbx": bpy.ops.import_scene.fbx,
     ".ply": bpy.ops.import_mesh.ply,
     ".obj": bpy.ops.import_scene.obj,
-    ".stl": bpy.ops.import_mesh.stl
+    ".stl": bpy.ops.import_mesh.stl,
+    ".glb": bpy.ops.import_scene.gltf
 }
 
 extension = splitext(input_file)[1].lower()
@@ -62,7 +63,7 @@ if extension not in import_functions:
 # Import the file and get objects ready
 import_functions[extension](filepath=input_file)
 for o in bpy.data.objects:
-    if o.select:
+    if o.select_get():
         o.pass_index = 1
 
 # Align camera view to imported objects

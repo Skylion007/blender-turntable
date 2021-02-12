@@ -7,5 +7,8 @@ fi
 if [[ ! -z $3 ]]; then
     steps="--turntable-steps $3"
 fi
-
-blender turntable.blend --window-geometry 0 0 0 0 --python turntable.py -- --turntable-model $1 ${output} ${steps}
+shift
+shift
+shift
+echo $@
+blender turntable.blend --window-geometry 0 0 0 0 --python turntable.py -- --turntable-model $1 ${output} ${steps} $@
